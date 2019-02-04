@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Review;
+use App\Gameplan;
 use Illuminate\Http\Request;
 
-class ReviewController extends Controller
+class GameplanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ReviewController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Review  $review
+     * @param  \App\Gameplan  $gameplan
      * @return \Illuminate\Http\Response
      */
-    public function show(Review $review)
+    public function show(Gameplan $gameplan)
     {
         //
     }
@@ -52,10 +52,10 @@ class ReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Review  $review
+     * @param  \App\Gameplan  $gameplan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Review $review)
+    public function edit(Gameplan $gameplan)
     {
         //
     }
@@ -64,10 +64,10 @@ class ReviewController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Review  $review
+     * @param  \App\Gameplan  $gameplan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Review $review)
+    public function update(Request $request, Gameplan $gameplan)
     {
         //
     }
@@ -75,10 +75,10 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Review  $review
+     * @param  \App\Gameplan  $gameplan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Review $review)
+    public function destroy(Gameplan $gameplan)
     {
         //
     }
