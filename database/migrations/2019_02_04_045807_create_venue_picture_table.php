@@ -14,7 +14,11 @@ class CreateVenuePictureTable extends Migration
     public function up()
     {
         Schema::create('venue_picture', function (Blueprint $table) {
-            $table->increments('id');
+            $table->primary(['venue_id', 'picture_id']);
+            $table->unsignedInteger('venue_id');
+            $table->unsignedInteger('picture_id');
+            $table->foreign('venue_id')->references('id')->on('venues')->onDelete('cascade');
+            $table->foreign('picture_id')->references('id')->on('pictures')->onDelete('cascade');
             $table->timestamps();
         });
     }

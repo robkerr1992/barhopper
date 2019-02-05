@@ -14,7 +14,11 @@ class CreateGameplanUserTable extends Migration
     public function up()
     {
         Schema::create('gameplan_user', function (Blueprint $table) {
-            $table->increments('id');
+            $table->primary(['gameplan_id', 'user_id']);
+            $table->unsignedInteger('gameplan_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('gameplan_id')->references('id')->on('gameplans')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

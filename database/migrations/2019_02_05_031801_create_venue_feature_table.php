@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSpecialsTable extends Migration
+class CreateVenueFeatureTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateSpecialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('specials', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('venue_id')->unsigned();
+        Schema::create('venue_feature', function (Blueprint $table) {
+            $table->primary(['venue_id', 'feature_id']);
+            $table->unsignedInteger('venue_id');
+            $table->unsignedInteger('feature_id');
             $table->foreign('venue_id')->references('id')->on('venues')->onDelete('cascade');
-            $table->string('title');
-            $table->string('description');
+            $table->foreign('feature_id')->references('id')->on('features')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateSpecialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specials');
+        Schema::dropIfExists('venue_feature');
     }
 }

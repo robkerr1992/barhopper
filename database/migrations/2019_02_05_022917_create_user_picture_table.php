@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventPictureTable extends Migration
+class CreateUserPictureTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateEventPictureTable extends Migration
      */
     public function up()
     {
-        Schema::create('event_picture', function (Blueprint $table) {
-            $table->primary(['event_id', 'picture_id']);
-            $table->unsignedInteger('event_id');
+        Schema::create('user_picture', function (Blueprint $table) {
+            $table->primary(['user_id', 'picture_id']);
+            $table->unsignedInteger('user_id');
             $table->unsignedInteger('picture_id');
-            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('picture_id')->references('id')->on('pictures')->onDelete('cascade');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreateEventPictureTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event_picture');
+        Schema::dropIfExists('user_picture');
     }
 }

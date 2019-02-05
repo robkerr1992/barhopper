@@ -14,7 +14,11 @@ class CreateVenueCommentTable extends Migration
     public function up()
     {
         Schema::create('venue_comment', function (Blueprint $table) {
-            $table->increments('id');
+            $table->primary(['venue_id', 'comment_id']);
+            $table->unsignedInteger('venue_id');
+            $table->unsignedInteger('comment_id');
+            $table->foreign('venue_id')->references('id')->on('venues')->onDelete('cascade');
+            $table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
             $table->timestamps();
         });
     }

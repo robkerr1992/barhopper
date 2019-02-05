@@ -15,6 +15,12 @@ class CreateVenuesTable extends Migration
     {
         Schema::create('venues', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('address');
+            $table->integer('beer_rating')->default(0);
+            $table->integer('phone')->nullable();
+            $table->string('website')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }
