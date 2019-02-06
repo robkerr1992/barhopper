@@ -10,4 +10,14 @@ class Comment extends Model
     {
         $this->belongsTo(User::class, 'user_id');
     }
+
+    public function venues()
+    {
+        $this->belongsToMany(Venue::class, 'venue_comment');
+    }
+
+    public function gameplans()
+    {
+        $this->belongsToMany(Gameplan::class, 'gameplan_comment');
+    }
 }

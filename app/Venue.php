@@ -8,11 +8,26 @@ class Venue extends Model
 {
     public function pictures()
     {
-        return $this->hasMany(Picture::class, 'venue_id');
+        return $this->belongsToMany(Picture::class, 'venue_picture');
     }
 
-    public function venues()
+    public function features()
     {
-        return $this->hasMany(Feature::class, 'venue_id');
+        return $this->belongsToMany(Feature::class, 'venue_feature');
+    }
+
+    public function comments()
+    {
+        return $this->belongsToMany(Comment::class, 'venue_comment');
+    }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'venue_id');
+    }
+
+    public function specials()
+    {
+        return $this->hasMany(Special::class, 'venue_id');
     }
 }
