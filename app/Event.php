@@ -20,4 +20,9 @@ class Event extends Model
     {
         $this->belongsToMany(Gameplan::class, 'gameplan_event');
     }
+
+    public function attendees()
+    {
+        return $this->belongsToMany(User::class, 'event_user');
+    }
 }
